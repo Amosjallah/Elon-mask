@@ -99,6 +99,22 @@ body {
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.header-brand-logo:hover .brand-logo-img {
+  transform: scale(1.05);
 }
 
 .brand-text-main {
@@ -163,10 +179,43 @@ body {
 .top-banner {
   position: relative;
   width: 100%;
-  aspect-ratio: 959 / 158;
-  background: url('header-bg.png') center center / 100% 100% no-repeat;
+  aspect-ratio: 1024 / 363;
+  background: url('header-bg.png') center center / cover no-repeat;
   overflow: hidden;
   border-bottom: 1px solid #161820;
+}
+
+.hero-banner-section {
+  width: 100%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0 10px;
+}
+
+.hero-banner-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-banner-img:hover {
+  transform: scale(1.005);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 255, 255, 0.08);
 }
 
 .user-profile-overlay {
@@ -239,7 +288,7 @@ body {
 }
 
 .welcome-container {
-  max-width: 920px;
+  max-width: 1300px;
   background: rgba(14, 15, 20, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 50px 60px;
@@ -549,6 +598,7 @@ body {
     grid-template-columns: 1fr;
     gap: 50px;
   }
+
   .news-img-box {
     height: 380px;
   }
@@ -599,13 +649,15 @@ body {
   overflow: hidden;
 }
 
-.pavilion-box, .ribbon-car-box {
+.pavilion-box,
+.ribbon-car-box {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.pavilion-box img, .ribbon-car-box img {
+.pavilion-box img,
+.ribbon-car-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -621,7 +673,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 4px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .ribbon-overlay {
@@ -741,7 +793,7 @@ body {
   justify-content: center;
   font-size: 16px;
   padding-left: 3px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -761,7 +813,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
 }
@@ -773,7 +825,7 @@ body {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -857,7 +909,7 @@ body {
   border-radius: 8px;
   padding: 16px;
   display: flex;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
 .cfo-card-inner {
@@ -1240,11 +1292,11 @@ select:focus {
   position: relative;
 }
 
-.checkbox-container:hover input ~ .checkmark {
+.checkbox-container:hover input~.checkmark {
   border-color: #3b82f6;
 }
 
-.checkbox-container input:checked ~ .checkmark {
+.checkbox-container input:checked~.checkmark {
   background-color: #3b82f6;
   border-color: #3b82f6;
 }
@@ -1255,7 +1307,7 @@ select:focus {
   display: none;
 }
 
-.checkbox-container input:checked ~ .checkmark::after {
+.checkbox-container input:checked~.checkmark::after {
   display: block;
 }
 
@@ -1380,9 +1432,11 @@ select:focus {
   0% {
     box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
   }
+
   70% {
     box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
   }
@@ -1681,4 +1735,3 @@ a.contact-box-value:hover {
     font-size: 28px;
   }
 }
-
