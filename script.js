@@ -255,24 +255,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mediaVideoBoxes.forEach(box => {
     box.style.cursor = 'pointer';
-    
+
     box.addEventListener('click', () => {
-      // Check if video element already exists inside this box
+      const videoSrc = box.getAttribute('data-video') || 'ev.mp4';
       let videoElem = box.querySelector('video');
 
-      if (!videoElem) {
-        const videoSrc = box.getAttribute('data-video') || 'ev.mp4';
+      // If a video element exists but its src points to an image file, fix the src to the video file
+      if (videoElem && (videoElem.src.includes('.jpg') || videoElem.src.includes('.jpeg') || videoElem.src.includes('.png') || !videoElem.controls)) {
+        videoElem.src = videoSrc;
+        videoElem.controls = true;
+        videoElem.autoplay = true;
+        videoElem.playsInline = true;
+        videoElem.setAttribute('playsinline', '');
+        videoElem.style.width = '100%';
+        videoElem.style.height = '100%';
+        videoElem.style.objectFit = 'cover';
+      }
 
+      if (!videoElem) {
         // Create HTML5 video element
         videoElem = document.createElement('video');
         videoElem.src = videoSrc;
         videoElem.controls = true;
         videoElem.autoplay = true;
         videoElem.playsInline = true;
+        videoElem.setAttribute('playsinline', '');
         videoElem.style.width = '100%';
         videoElem.style.height = '100%';
         videoElem.style.objectFit = 'cover';
-        videoElem.style.borderRadius = '4px';
 
         // Hide static image thumbnail & play button overlay
         const img = box.querySelector('img');
@@ -282,6 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         box.appendChild(videoElem);
       }
+
+      // Hide play button if present
+      const playBtn = box.querySelector('.play-btn-overlay');
+      if (playBtn) playBtn.style.display = 'none';
 
       // Play video
       videoElem.play().catch(err => {
