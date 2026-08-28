@@ -271,7 +271,7 @@ body {
   background: rgba(14, 15, 20, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 50px 60px;
-  border-radius: 16px;
+  border-radius: 0px;
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
@@ -376,9 +376,11 @@ body {
   .about-network-split-grid {
     grid-template-columns: 1fr;
   }
+
   .about-network-text-side {
     padding: 60px 30px;
   }
+
   .about-network-img-side {
     height: 380px;
   }
@@ -596,12 +598,14 @@ body {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .news-col-block {
     padding: 0;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding-bottom: 40px;
   }
+
   .news-img-frame {
     height: 320px;
   }
@@ -791,8 +795,6 @@ body {
 
 .media-video-box:hover img {
   transform: scale(1.03);
-}
-  transform: scale(1.04);
 }
 
 .play-btn-overlay {
