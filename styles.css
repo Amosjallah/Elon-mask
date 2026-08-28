@@ -161,78 +161,63 @@ body {
 }
 
 /* ==========================================================================
-   TOP HEADER & HERO SECTION
+   TOP HEADER & HERO BANNER SECTION (WIX EDITOR REFERENCE DESIGN)
    ========================================================================== */
 
 .header-hero-wrapper {
+  width: 100%;
   background: #000000;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .top-banner {
   position: relative;
   width: 100%;
-  aspect-ratio: 1024 / 363;
-  background: url('header-bg.png') center center / cover no-repeat;
+  max-width: 100%;
+  aspect-ratio: 1024 / 310;
+  min-height: 220px;
+  background: #000000 url('header-bg.png') center center / cover no-repeat;
   overflow: hidden;
-  border-bottom: 1px solid #161820;
-}
-
-.hero-banner-section {
-  width: 100%;
-  background-color: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 0 10px;
-}
-
-.hero-banner-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.hero-banner-img {
-  width: 100%;
-  height: auto;
-  max-height: 420px;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-banner-img:hover {
-  transform: scale(1.005);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 255, 255, 0.08);
 }
 
 .user-profile-overlay {
   position: absolute;
-  top: 8%;
+  top: 5%;
   right: 2.5%;
-  width: 50px;
-  height: 35px;
   z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   cursor: pointer;
+  padding: 6px 12px;
   border-radius: 20px;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .user-profile-overlay:hover {
   background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
 }
 
-/* Position interactive pill navigation links over the background image navigation area */
+.user-icon-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-arrow {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Position pill navigation links over the bottom right of the header banner */
 .pill-nav {
   position: absolute;
-  bottom: 8%;
-  right: 2%;
+  bottom: 5%;
+  right: 2.5%;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -243,15 +228,15 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 24px;
+  padding: 9px 26px;
   background-color: #ffffff;
-  color: #c84b1d;
+  color: #d94b1f;
   font-family: 'Outfit', 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 12.5px;
   letter-spacing: 1.2px;
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   text-transform: uppercase;
@@ -262,16 +247,16 @@ body {
 .nav-btn:hover {
   background-color: #ffffff;
   color: #b83a00;
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5), 0 0 15px rgba(200, 75, 29, 0.35);
-  border-color: rgba(200, 75, 29, 0.4);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5), 0 0 15px rgba(217, 75, 31, 0.35);
+  border-color: rgba(217, 75, 31, 0.4);
 }
 
 .nav-btn.active {
   background-color: #ffffff;
   color: #b83a00;
-  border-color: #c84b1d;
-  box-shadow: 0 0 15px rgba(200, 75, 29, 0.5);
+  border-color: #d94b1f;
+  box-shadow: 0 0 15px rgba(217, 75, 31, 0.5);
 }
 
 /* Welcome Section */
