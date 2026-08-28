@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Network Inquiry | Elon Space & Innovation Network</title>
+  <meta name="description" content="Get in touch with Elon Space & Innovation Network. Submit inquiries for grants, giveaways, or partnerships.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Global Top Navbar -->
+  <header class="global-site-header">
+    <div class="header-nav-container">
+      <a href="index.html" class="header-brand-logo">
+        <span class="brand-text-main">ELON SPACE</span> & INNOVATION NETWORK
+      </a>
+      <nav class="global-nav-links">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        <a href="giveaways.html" class="nav-link">GIVEAWAYS</a>
+        <a href="contact.html" class="nav-link active">CONTACT</a>
+        <a href="privacy.html" class="nav-link">PRIVACY</a>
+        <a href="terms.html" class="nav-link">TERMS</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="about-hero-section" style="padding: 4rem 0 2rem; background: radial-gradient(circle at center, #1a202c 0%, #0f172a 100%); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="container text-center">
+      <h1 class="hero-main-title" style="font-size: 2.5rem; margin-bottom: 1rem; color: #ffffff;">Network Inquiry & Contact</h1>
+      <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto; color: #a0aec0; font-size: 1.1rem; line-height: 1.6;">
+        Have questions regarding Network Grants, Giveaways, or Innovation Programs? Reach out to our dedicated support team below.
+      </p>
+    </div>
+  </section>
+
+  <!-- NETWORK INQUIRY FORM SECTION -->
+  <section id="inquiry" class="network-inquiry-section">
+    <div class="container">
+      <div class="inquiry-card">
+        <h2 class="inquiry-title">Network Inquiry</h2>
+        <p class="inquiry-description">
+          Please complete the form below to submit an official inquiry regarding network opportunities, grants,
+          experiences, or participation. All fields marked with an asterisk (<span class="required">*</span>) are mandatory.
+        </p>
+
+        <form id="networkInquiryForm" class="inquiry-form">
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country of Residence <span class="required">*</span></label>
+            <input type="text" id="country" name="country" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contactReason">Reason for Contact <span class="required">*</span></label>
+            <div class="select-wrapper">
+              <select id="contactReason" name="contactReason" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="grants">Grants & Funding Inquiry</option>
+                <option value="internships">Internship Opportunities</option>
+                <option value="giveaways">Giveaway Program Information</option>
+                <option value="partnerships">Partnership & Innovation</option>
+                <option value="general">General Inquiry</option>
+              </select>
+              <span class="select-arrow"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone <span class="required">*</span></label>
+            <div class="phone-input-wrapper">
+              <div class="globe-icon-box">
+                <svg viewBox="0 0 24 24" class="globe-icon">
+                  <circle cx="12" cy="12" r="10" stroke="#718096" stroke-width="1.5" fill="none" />
+                  <ellipse cx="12" cy="12" rx="4" ry="10" stroke="#718096" stroke-width="1.5" fill="none" />
+                  <line x1="2" y1="12" x2="22" y2="12" stroke="#718096" stroke-width="1.5" />
+                </svg>
+                <span class="down-arrow"></span>
+              </div>
+              <input type="tel" id="phone" name="phone" placeholder="" required>
+            </div>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-container">
+              <input type="checkbox" id="confirmCheck" name="confirmCheck" required>
+              <span class="checkmark"></span>
+              <span class="checkbox-text">
+                I confirm that the information I have provided is accurate and complete, and I understand that
+                submitting this form does not guarantee acceptance, selection, or participation in any opportunity.
+              </span>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">Submit Request</button>
+          </div>
+        </form>
+
+        <div id="submissionSuccess" class="submission-success hidden">
+          <div class="success-icon">✔</div>
+          <h3>Inquiry Submitted Successfully</h3>
+          <p>Thank you for reaching out to the Elon Space & Innovation Network. Our team will review your application and respond shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT INFORMATION SECTION -->
+  <section id="contact-info" class="contact-info-section">
+    <div class="container">
+      <h2 class="contact-info-header">Contact Information</h2>
+      <div class="contact-info-card">
+        <div class="contact-info-col">
+          <div class="contact-box-label">EMAIL</div>
+          <div class="contact-box-value">tesla.xmuskceo@gmail.com</div>
+        </div>
+        <div class="contact-info-divider"></div>
+        <div class="contact-info-col">
+          <div class="contact-box-label">Address</div>
+          <div class="contact-box-value">45500 Fremont Boulevard Fremont, CA 94538</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container text-center">
+      <div class="footer-brand">ELON SPACE & INNOVATION NETWORK</div>
+      <div class="footer-main-nav">
+        <a href="about.html">About</a>
+        <span class="nav-divider">|</span>
+        <a href="giveaways.html">Opportunities</a>
+        <span class="nav-divider">|</span>
+        <a href="giveaways.html">Experiences</a>
+        <span class="nav-divider">|</span>
+        <a href="giveaways.html">Gallery</a>
+        <span class="nav-divider">|</span>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-sub-nav">
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="nav-divider">|</span>
+        <a href="terms.html">Terms & Conditions</a>
+      </div>
+      <p class="footer-copyright">&copy; 2026 Elon Space & Innovation Network. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

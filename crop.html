@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="c" width="956" height="159"></canvas>
+<script>
+const img = new Image();
+img.onload = () => {
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 203, 956, 159, 0, 0, 956, 159);
+  const data = canvas.toDataURL('image/png');
+  fetch('http://localhost:9999', {
+    method: 'POST',
+    body: data
+  }).then(r => r.text()).then(t => {
+    document.body.innerHTML += '<h1>SAVED! ' + t + '</h1>';
+  });
+};
+img.src = 'file:///C:/Users/AMOS/.gemini/antigravity-ide/brain/5eb40adf-2d16-4a1c-8faf-899f1d371c60/.user_uploaded/media_1787687968894.png';
+</script>
+</body>
+</html>
