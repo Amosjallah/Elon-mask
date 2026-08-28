@@ -523,65 +523,97 @@ body {
   margin-bottom: 50px;
 }
 
-.three-columns-text-section {
-  padding: 80px 0 90px;
+.latest-news-section {
+  padding: 70px 0 90px;
   background-color: #000000;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.three-columns-grid {
+.news-main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 44px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 55px;
+  text-align: center;
+}
+
+.latest-news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
 
-.col-text-block {
-  padding: 0 40px;
+.news-col-block {
+  padding: 0 35px;
   border-right: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
 }
 
-.col-text-block:first-child {
+.news-col-block:first-child {
   padding-left: 0;
 }
 
-.col-text-block:last-child {
+.news-col-block:last-child {
   padding-right: 0;
   border-right: none;
 }
 
-.col-text-title {
+.news-img-frame {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 0px;
+  background-color: #0d0d0d;
+  margin-bottom: 28px;
+}
+
+.news-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.news-col-block:hover .news-img-frame img {
+  transform: scale(1.03);
+}
+
+.news-col-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   line-height: 1.25;
 }
 
-.col-text-block p {
+.news-col-desc {
   font-family: var(--font-main);
   font-size: 14.5px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: #cccccc;
-  margin-bottom: 20px;
   font-weight: 300;
-}
-
-.col-text-block p:last-child {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 @media (max-width: 992px) {
-  .three-columns-grid {
+  .latest-news-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .col-text-block {
+  .news-col-block {
     padding: 0;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 30px;
+    padding-bottom: 40px;
+  }
+  .news-img-frame {
+    height: 320px;
   }
 }
 
