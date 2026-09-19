@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData(form);
 
-        fetch('https://formsubmit.co/ajax/amosjusu6@gmail.com', {
+        fetch('https://formsubmit.co/ajax/Tesla.xmuskceo@gmail.com', {
           method: 'POST',
           headers: {
             'Accept': 'application/json'
