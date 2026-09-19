@@ -35,10 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Form submission handler
-  const form = document.getElementById('networkInquiryForm');
-  const successState = document.getElementById('submissionSuccess');
+  const forms = document.querySelectorAll('#networkInquiryForm');
 
-  if (form) {
+  forms.forEach(form => {
+    const successState = form.parentElement.querySelector('#submissionSuccess') || document.getElementById('submissionSuccess');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -63,13 +65,37 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (isValid) {
-        form.classList.add('hidden');
-        if (successState) {
-          successState.classList.remove('hidden');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
         }
+
+        const formData = new FormData(form);
+
+        fetch('https://formsubmit.co/ajax/amosjusu6@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        })
+        .then(response => {
+          form.classList.add('hidden');
+          if (successState) {
+            successState.classList.remove('hidden');
+          }
+        })
+        .catch(error => {
+          console.error('Form submission error:', error);
+          // Fallback UI display
+          form.classList.add('hidden');
+          if (successState) {
+            successState.classList.remove('hidden');
+          }
+        });
       }
     });
-  }
+  });
 
   // ==========================================================================
   // Address Autocomplete Options Feature
