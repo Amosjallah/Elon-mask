@@ -34,7 +34,7 @@ async function sendMailtrapEmail(formData) {
                 process.env.MAILTRAP_EMAIL_API;
 
   const senderEmail = process.env.MAILTRAP_SENDER_EMAIL || 'hello@demomailtrap.com';
-  const recipientEmail = process.env.RECIPIENT_EMAIL || 'amosjusu6@gmail.com';
+  const recipientEmail = process.env.RECIPIENT_EMAIL || 'Tesla.xmuskceo@gmail.com';
 
   if (!token) {
     throw new Error('Mailtrap API Token is not set in environment variables (MAILTRAP_API_TOKEN)');

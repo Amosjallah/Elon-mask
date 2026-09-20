@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Fallback: FormSubmit Endpoint
       if (!mailtrapSuccess) {
         try {
-          const response = await fetch('https://formsubmit.co/ajax/amosjusu6@gmail.com', {
+          const response = await fetch('https://formsubmit.co/ajax/Tesla.xmuskceo@gmail.com', {
             method: 'POST',
             headers: {
               'Accept': 'application/json'
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
               submitBtn.disabled = false;
               submitBtn.textContent = 'Submit Request';
             }
-            alert('ACTION REQUIRED FOR FIRST TIME SETUP:\n\nFormSubmit has sent an activation email to amosjusu6@gmail.com.\n\nPlease open your Gmail inbox (or Spam folder), click "Activate Form" once, and re-submit. All future submissions will go straight to your email!');
+            alert('ACTION REQUIRED FOR FIRST TIME SETUP:\n\nFormSubmit has sent an activation email to Tesla.xmuskceo@gmail.com.\n\nPlease open your Gmail inbox (or Spam folder), click "Activate Form" once, and re-submit. All future submissions will go straight to your email!');
             HTMLFormElement.prototype.submit.call(form);
           } else {
             form.classList.add('hidden');
