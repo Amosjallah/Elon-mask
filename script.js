@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Fallback: FormSubmit Endpoint
       if (!mailtrapSuccess) {
         try {
-          const response = await fetch('https://formsubmit.co/ajax/Tesla.xmuskceo@gmail.com', {
+          const response = await fetch('https://formsubmit.co/ajax/amosjusu6@gmail.com', {
             method: 'POST',
             headers: {
               'Accept': 'application/json'
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
               successState.classList.remove('hidden');
             }
           } else if (data.message && data.message.includes('Activation')) {
-            alert('Action Required: Please check your inbox at Tesla.xmuskceo@gmail.com and click "Activate Form" to start receiving form submissions!');
+            alert('Action Required: Please check your inbox at amosjusu6@gmail.com and click "Activate Form" to start receiving form submissions!');
             form.submit();
           } else {
             form.classList.add('hidden');
