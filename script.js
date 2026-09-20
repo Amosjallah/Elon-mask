@@ -121,9 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (successState) {
               successState.classList.remove('hidden');
             }
-          } else if (data.message && data.message.includes('Activation')) {
-            alert('Action Required: Please check your inbox at amosjusu6@gmail.com and click "Activate Form" to start receiving form submissions!');
-            form.submit();
+          } else if (data.message && (data.message.includes('Activation') || data.message.includes('actived') || data.success === 'false' || data.success === false)) {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Submit Request';
+            }
+            alert('ACTION REQUIRED FOR FIRST TIME SETUP:\n\nFormSubmit has sent an activation email to amosjusu6@gmail.com.\n\nPlease open your Gmail inbox (or Spam folder), click "Activate Form" once, and re-submit. All future submissions will go straight to your email!');
+            HTMLFormElement.prototype.submit.call(form);
           } else {
             form.classList.add('hidden');
             if (successState) {
@@ -132,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } catch (error) {
           console.error('Form submission error:', error);
-          form.submit();
+          HTMLFormElement.prototype.submit.call(form);
         }
       }
     });
