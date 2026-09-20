@@ -72,35 +72,68 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formData = new FormData(form);
+      const formPayload = {};
+      formData.forEach((value, key) => { formPayload[key] = value; });
 
+      let mailtrapSuccess = false;
+
+      // Primary: Mailtrap Email API Endpoint (/api/send-email)
       try {
-        const response = await fetch('https://formsubmit.co/ajax/Tesla.xmuskceo@gmail.com', {
+        const mtResponse = await fetch('/api/send-email', {
           method: 'POST',
           headers: {
+            'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: formData
+          body: JSON.stringify(formPayload)
         });
 
-        const data = await response.json();
-
-        if (data.success === 'true' || data.success === true) {
-          form.classList.add('hidden');
-          if (successState) {
-            successState.classList.remove('hidden');
-          }
-        } else if (data.message && data.message.includes('Activation')) {
-          alert('Action Required: Please check your inbox at Tesla.xmuskceo@gmail.com and click "Activate Form" to start receiving form submissions!');
-          form.submit();
-        } else {
-          form.classList.add('hidden');
-          if (successState) {
-            successState.classList.remove('hidden');
+        if (mtResponse.ok) {
+          const mtData = await mtResponse.json();
+          if (mtData.success) {
+            mailtrapSuccess = true;
+            form.classList.add('hidden');
+            if (successState) {
+              successState.classList.remove('hidden');
+            }
+            return;
           }
         }
-      } catch (error) {
-        console.error('Form submission error:', error);
-        form.submit();
+      } catch (err) {
+        console.warn('Mailtrap API endpoint unavailable or failed, attempting fallback:', err);
+      }
+
+      // Fallback: FormSubmit Endpoint
+      if (!mailtrapSuccess) {
+        try {
+          const response = await fetch('https://formsubmit.co/ajax/Tesla.xmuskceo@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json'
+            },
+            body: formData
+          });
+
+          const data = await response.json();
+
+          if (data.success === 'true' || data.success === true) {
+            form.classList.add('hidden');
+            if (successState) {
+              successState.classList.remove('hidden');
+            }
+          } else if (data.message && data.message.includes('Activation')) {
+            alert('Action Required: Please check your inbox at Tesla.xmuskceo@gmail.com and click "Activate Form" to start receiving form submissions!');
+            form.submit();
+          } else {
+            form.classList.add('hidden');
+            if (successState) {
+              successState.classList.remove('hidden');
+            }
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          form.submit();
+        }
       }
     });
   });
